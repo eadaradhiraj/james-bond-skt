@@ -16,12 +16,37 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
         }
+        .book-section {
+            margin-bottom: 30px;
+        }
+        .book-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        .book-title:hover {
+            background-color: #e3f2fd;
+            border-color: #2196f3;
+            transform: translateY(-2px);
+        }
         .chapter-list {
             list-style: none;
             padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .chapter-list.active {
+            max-height: 1000px; /* Adjust based on content */
         }
         .chapter-list li {
-            margin: 20px 0;
+            margin: 15px 0;
         }
         .chapter-link {
             text-decoration: none;
@@ -41,28 +66,83 @@
     </style>
 </head>
 <body>
-
     <div class="toc-container">
         <h1>Casino Royale</h1>
         
-        <ul class="chapter-list">
-            <li>
-                <!-- Adjust 'story.html' if you named the file inside the folder differently -->
-                <a href="casino_royale/ch1.html" class="chapter-link">
-                    <strong>Chapter 1</strong><br>
-                    <span style="font-size: 0.9rem; color: #666;">The Secret Agent</span>
-                </a>
-            </li>
-            <li>
-                <!-- Adjust 'story.html' if you named the file inside the folder differently -->
-                <a href="casino_royale/ch2.html" class="chapter-link">
-                    <strong>Chapter 2</strong><br>
-                    <span style="font-size: 0.9rem; color: #666;">Dossier for M</span>
-                </a>
-            </li>
-            <!-- You can add more chapters here later -->
-        </ul>
+        <div class="book-section">
+            <div class="book-title" onclick="toggleChapters('casino-royale')">
+                Casino Royale Chapters
+            </div>
+            <ul class="chapter-list" id="casino-royale">
+                <li>
+                    <a href="casino_royale/ch1.html" class="chapter-link">
+                        <strong>Chapter 1</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">The Secret Agent</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch2.html" class="chapter-link">
+                        <strong>Chapter 2</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">Dossier for M</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch3.html" class="chapter-link">
+                        <strong>Chapter 3</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">Number 007</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch4.html" class="chapter-link">
+                        <strong>Chapter 4</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">L'Ennemi Écoute</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch5.html" class="chapter-link">
+                        <strong>Chapter 5</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">The Girl from Headquarters</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch6.html" class="chapter-link">
+                        <strong>Chapter 6</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">Two Men in Straw Hats</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch7.html" class="chapter-link">
+                        <strong>Chapter 7</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">Rouge et Noir</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch8.html" class="chapter-link">
+                        <strong>Chapter 8</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">Pink Lights and Champagne</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch9.html" class="chapter-link">
+                        <strong>Chapter 9</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">The Game is Baccarat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="casino_royale/ch10.html" class="chapter-link">
+                        <strong>Chapter 10</strong><br>
+                        <span style="font-size: 0.9rem; color: #666;">The High Table</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
+    <script>
+        function toggleChapters(id) {
+            const list = document.getElementById(id);
+            list.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
